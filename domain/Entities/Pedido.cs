@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace domain
+namespace domain.Entities
 {
     public class Pedido
     {
