@@ -1,9 +1,8 @@
 ID,Nome,Preço Unitário (R$),Múltiplo
-1,Millenium Falcon ,550000.00
-2,X-Wing,6000000.2
-3,Super Star Destroyer,4570000.00
+1,Millenium Falcon ,550000.00,
+2,X-Wing,6000000.2,
+3,Super Star Destroyer,4570000.00,
 4,TIE Fighter,75000.00,2
 5,Lightsaber,6000.00,5
-6,DLT-19 Heavy Blaster Rifle,5800.00
+6,DLT-19 Heavy Blaster Rifle,5800.00,
 7,DL-44 Heavy Blaster Pistol,1500.00,10
-
