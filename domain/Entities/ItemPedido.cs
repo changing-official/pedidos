@@ -9,6 +9,14 @@ namespace domain.Entities
             Preco = 0.01M;
         }
 
+        public ItemPedido(string produto, decimal precoSugerido) : this()
+        {
+            NomeProduto = produto;
+            Preco = precoSugerido;
+        }
+
+        public string NomeProduto { get; set; }
+
         private decimal _preco;
         public decimal Preco
         {
@@ -26,7 +34,7 @@ namespace domain.Entities
             get { return _quantidade; }
             set
             {
-                 if (value < 1) throw new System.Exception();
+                if (value < 1) throw new System.Exception();
                 _quantidade = value;
             }
         }
