@@ -7,10 +7,10 @@ namespace domain.Entities
     {
         public Pedido()
         {
-            Itens = new List<Item>();
+            Itens = new List<ItemPedido>();
         }
 
         public string Cliente { get; set; }
-        public IList<Item> Itens { get; set; }
+        public IList<ItemPedido> Itens { get; set; }
     }
 }

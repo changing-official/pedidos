@@ -25,9 +25,9 @@ namespace domain.test
         }
 
         [TestMethod]
-        public void TestItensMustBeGreaterThanZero()
+        public void TestQuantidadeItensMustBeGreaterThanZero()
         {
-            _pedido.Itens.Add(new Item());
+            _pedido.Itens.Add(new ItemPedido());
 
             var firstPedido = _pedido.Itens.First();
 
@@ -35,10 +35,22 @@ namespace domain.test
 
             Assert.IsTrue(firstPedido.Quantidade > 0);
 
-             Assert.ThrowsException<System.Exception>(
+            Assert.ThrowsException<System.Exception>(
                  () => firstPedido.Quantidade = 0
                  , "Quantidade deve ser maior que zero");
             
+        }
+
+        [TestMethod]
+        public void TestPrecoItensMustBeGreaterThanZero() 
+        {
+            var itemPedido = new ItemPedido();
+
+            Assert.IsNotNull(itemPedido.Preco);
+            Assert.IsTrue(itemPedido.Preco > 0);
+            Assert.ThrowsException<System.Exception>(
+                 () => itemPedido.Preco = 0
+                 , "Preço deve ser maior que zero");
         }
     }
 }
