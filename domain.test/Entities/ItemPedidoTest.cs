@@ -13,9 +13,9 @@ namespace domain.test
         {
             _itemPedido = new ItemPedido();
         }
-        
+
         [TestMethod]
-        public void TestProdutoItensInstance()
+        public void TestProdutoItemPedidoInstance()
         {
             Assert.IsNull(_itemPedido.NomeProduto);
         }
@@ -44,16 +44,24 @@ namespace domain.test
         }
 
         [TestMethod]
-        public void TestProdutoItensMustChangeItemPrice()
+        public void TestRentabilidadeShouldBePendente()
         {
-            var precoProduto = 60000M;
-
-            _itemPedido = new ItemPedido("X-Wing", precoSugerido: precoProduto);
-
-            Assert.IsNotNull(_itemPedido);
-            Assert.AreEqual("X-Wing", _itemPedido.NomeProduto);
-            Assert.AreEqual(precoProduto, _itemPedido.Preco);
+            Assert.AreEqual(Rentabilidade.Pendente, _itemPedido.Rentabilidade);
         }
 
+        [TestMethod]
+        public void TestOtimaRentabilidadeForPrecoProdutoMaiorQueSugerido()
+        {
+            var precoProduto = 6000M;
+
+            _itemPedido = new ItemPedido();
+
+            _itemPedido.NomeProduto = "X-Wing";
+            _itemPedido.PrecoSugerido = precoProduto;
+
+            _itemPedido.Preco = precoProduto + 0.01M;
+
+            Assert.AreEqual(Rentabilidade.Otima, _itemPedido.Rentabilidade);
+        }
     }
 }

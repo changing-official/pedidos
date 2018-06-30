@@ -6,16 +6,14 @@ namespace domain.Entities
         public ItemPedido()
         {
             Quantidade = 1;
+            PrecoSugerido = 0.01M;
             Preco = 0.01M;
-        }
-
-        public ItemPedido(string produto, decimal precoSugerido) : this()
-        {
-            NomeProduto = produto;
-            Preco = precoSugerido;
+            Rentabilidade = Rentabilidade.Pendente;
         }
 
         public string NomeProduto { get; set; }
+
+        public decimal PrecoSugerido { get; set; }
 
         private decimal _preco;
         public decimal Preco
@@ -25,6 +23,9 @@ namespace domain.Entities
             {
                 if (value < 0.01M) throw new System.Exception();
                 _preco = value;
+
+                if (PrecoSugerido < _preco)
+                    Rentabilidade = Rentabilidade.Otima;
             }
         }
 
@@ -38,5 +39,7 @@ namespace domain.Entities
                 _quantidade = value;
             }
         }
+
+        public Rentabilidade Rentabilidade { get; set; }
     }
 }
