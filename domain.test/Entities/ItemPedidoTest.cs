@@ -13,8 +13,7 @@ namespace domain.test
         {
             _itemPedido = new ItemPedido();
         }
-        
-        [TestMethod]
+
         public void TestProdutoItensInstance()
         {
             Assert.IsNull(_itemPedido.NomeProduto);
